@@ -348,7 +348,6 @@ menu()
 
 subterfuge()
 {
-	cd /tmp
 	wget http://subterfuge.googlecode.com/files/SubterfugePublicBeta5.0.tar.gz
 	tar zxvf SubterfugePublicBeta5.0.tar.gz
 	cd subterfuge
@@ -360,7 +359,6 @@ subterfuge()
 
 ghost()
 {
-	cd /tmp
 	wget http://ghost-phisher.googlecode.com/files/Ghost-Phisher_1.5_all.deb
 	dpkg -i Ghost-Phisher_1.5_all.deb
 	rm Ghost-Phisher_1.5_all.deb
@@ -369,7 +367,6 @@ ghost()
 
 raidcall()
 {
-	cd /tmp
 	wget http://update.raidcall.com/download/raidcall.exe?v=7.2.6
 	mv raidcall.exe?v=7.2.6 raidcall.exe
 	wine raidcall.exe
