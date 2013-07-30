@@ -8,7 +8,7 @@ Modo de usar:
 Como usuário root digite:
 
 Para dar permissão de execução:
-chmod + x kali-update-tool.sh
+chmod +x kali-update-tool.sh
 
 Para executar:
 ./kali-update-tool.sh
