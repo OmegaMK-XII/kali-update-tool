@@ -22,7 +22,7 @@ logo()
 	echo "|_|\_\__,_|_|_|  \___/| .__/ \__,_|\__,_|\__\___|   |_|\___/ \___/|_|"
 	echo "                      |_|                                            "
 	echo "====================================================================="$FIMCOR
-	echo "                                          By OmegaMK-XII - versão 0.1"
+	echo "                                          By OmegaMK-XII - versão 0.5"
 	echo ""
 }
 
@@ -36,6 +36,7 @@ menu()
 	echo "3. Ver informações do Sistema"
 	echo "4. Atualizar Sistema (Recomendado caso seja a primeira execução)"
 	echo "5. IP Scanner"
+	echo "6. Atualização Kali 1.0.4"
 	echo "0. Sair"
 	echo ""$VERMELHO
 	read -p "Opção: " op
@@ -60,7 +61,7 @@ menu()
 		echo $VERDE"[-] Ferramentas: "$FIMCOR
 		echo ""
 		echo "[21] Virtualbox				[24] Subterfuge"
-		echo "[22] Tor				[25] Ghost-Phisher"
+		echo "[22] Tor				"
 		echo "[23] Graphical Network Simulator for Multiple Networks"
 		echo "[30] Todos de Ferramentas"
 		echo ""
@@ -133,13 +134,9 @@ menu()
 			"24")
 				subterfuge
 				;;
-			"25")
-				ghost
-				;;
 			"30")
 				apt-get -y install virtualbox tor vidalia gns3
 				subterfuge
-				ghost
 				;;
 			"31")
 				apt-get -y install synaptic 
@@ -325,6 +322,37 @@ menu()
 		
 		echo ""$AMARELO
 		read -p "Aperte [ENTER] para voltar ao Menu Principal" enter
+	elif [ "$op" -eq "6" ]
+	then
+		logo
+		echo $AMARELO"Atualização Kali 1.0.4"
+		echo ""
+		echo "Kali chegou em sua versão 1.0.4 e novas ferramentas foram adicionadas."$FIMCOR
+		echo ""
+		echo "[-] Ghost-Phisher			[-] Uniscan"
+		echo "[-] Enum4linux				[-] RegRipper"
+		echo "[-] Pass The Hash Toolkit		[-] Unicornscan"
+		echo "[-] jSQL				[-] JD-GUI"
+		echo "[-] Arachni				[-] Bully"
+		echo $AMARELO""
+		echo "Gostaria de instalar as ferramentas?"$VERMELHO
+		read -p "Permite? [s/N]: " opt
+		echo ""$FIMCOR
+		if [ "$opt" = "s" ] || [ "$opt" = "S" ]
+		then
+			echo $AMARELO"Instalando..."
+			echo ""$FIMCOR
+			apt-get update
+			apt-get -y install ghost-phisher uniscan enum4linux regripper passing-the-hash unicornscan jsql jd-gui arachni bully
+			echo $AMARELO""
+			echo "Pronto"
+			echo ""
+			read -p "Aperte [ENTER] para voltar ao Menu Principal" enter
+		else
+			echo $AMARELO"Nada a ser feito."
+			echo ""
+			read -p "Aperte [ENTER] para voltar ao Menu Principal" enter
+		fi
 	else
 		echo $AMARELO"Saindo..."$FIMCOR
 		exit
@@ -361,14 +389,6 @@ subterfuge()
 	cd ../
 	rm -rf subterfuge/
 	rm SubterfugePublicBeta5.0.tar.gz
-}
-
-ghost()
-{
-	wget http://ghost-phisher.googlecode.com/files/Ghost-Phisher_1.5_all.deb
-	dpkg -i Ghost-Phisher_1.5_all.deb
-	rm Ghost-Phisher_1.5_all.deb
-	apt-get -f install
 }
 
 raidcall()
