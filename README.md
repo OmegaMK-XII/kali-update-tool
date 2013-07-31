@@ -12,3 +12,15 @@ chmod +x kali-update-tool.sh
 
 Para executar:
 ./kali-update-tool.sh
+
+
+notas
+================
+
+versão 0.1
+
+- primeira versão disponível
+
+versão 0.5
+
+- menu para adição das ferramentas kali 1.0.4 adicionado
